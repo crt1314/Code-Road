@@ -1,0 +1,46 @@
+/* 去除margin和padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 链接去除装饰 */
+a {
+    text-decoration: none;
+}
+
+/* 去除li标签小圆点 */
+li {
+    list-style: none;
+}
+
+/* 左浮动 */
+.fl {
+    float: left;
+}
+
+/* 右浮动 */
+.fr {
+    float: right;
+}
+
+/* 清除浮动带来的父元素塌陷问题 */
+.clearFlow::before,
+.clearFlow::after {
+    content: '';
+    display: table;
+}
+
+.clearFlow::after {
+    clear: both;
+}
+
+.clearFlow {
+    *zoom: 1
+}
+
+/*取消选择样式*/
+::selection {
+    background: transparent;
+}

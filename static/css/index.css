@@ -1,0 +1,16 @@
+/* header占据index开头整面 */
+header[role="banner"] {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to top, #fff1eb, #ace0f9);
+}
+
+/* 居中显示欢迎Div */
+#welcome {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
