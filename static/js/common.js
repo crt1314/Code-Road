@@ -25,3 +25,18 @@ function changeTitleWhenUserLeaveAndArrive() {
         document.title = origin_title;
     }
 }
+
+/**
+ * 创建span标签
+ * @author crt1314
+ * @version 1.0.0
+ * @param content span标签中的内容
+ * @param cls class类
+ * @returns {HTMLSpanElement} span标签
+ */
+function createSpanElement(content, cls) {
+    const span = document.createElement("span");
+    span.textContent = content;
+    if (cls !== undefined) span.classList.add(cls);
+    return span;
+}

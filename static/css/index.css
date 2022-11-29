@@ -3,6 +3,8 @@ header[role="banner"] {
     position: relative;
     width: 100vw;
     height: 100vh;
+    min-width: 800px;
+    min-height: 600px;
     background-image: linear-gradient(to top, #fff1eb, #ace0f9);
 }
 
@@ -13,4 +15,71 @@ header[role="banner"] {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+/* 欢迎Div内h1标题设置为彩色字体 */
+#welcome h1 {
+    font-size: 4em;
+    font-style: italic;
+    background: -webkit-linear-gradient(
+            left,
+            #37ecba 0%,
+            #72afd3 10%,
+            #ffafbd 20%,
+            #ffc3a0 30%,
+            #fc00ff 40%,
+            #00dbde 50%,
+            #fc00ff 60%,
+            #ffc3a0 70%,
+            #ffafbd 80%,
+            #72afd3 90%,
+            #37ecba 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-size: 200% 100%;
+    -webkit-animation: move-animation 8s linear infinite;
+}
+
+/* 欢迎Div内h2标题样式 */
+#welcome h2 {
+    margin-top: 40px;
+    font-size: 2em;
+    font-family: "Lucida Calligraphy", cursive, serif, sans-serif;
+    color: cadetblue;
+}
+
+#welcome h2 span {
+    font-style: italic;
+    color: cornflowerblue;
+}
+
+/* 欢迎Div内p标签样式 */
+#welcome p {
+    margin-top: 30px;
+    text-align: justify;
+    text-indent: 2em;
+    font-size: 1.5em;
+    color: cadetblue;
+}
+
+#welcome p span {
+    font-style: italic;
+    color: deeppink;
+}
+
+#welcome p span.highlight {
+    color: palevioletred;
+}
+
+/* 左右移动背景位置以达到字体颜色变换效果 */
+@keyframes move-animation {
+    0% {
+        background-position: 0  0;
+    }
+    50% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 0  0;
+    }
 }
