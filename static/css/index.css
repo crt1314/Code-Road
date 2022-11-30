@@ -1,27 +1,32 @@
-/* header占据index开头整面 */
+/* header样式 */
 header[role="banner"] {
     position: relative;
     width: 100vw;
     height: 100vh;
     min-width: 800px;
-    min-height: 600px;
+    min-height: 800px;
+    overflow: auto;
     background-image: linear-gradient(to top, #fff1eb, #ace0f9);
 }
 
-/* 居中显示欢迎Div */
+/* 居中显示欢迎div */
 #welcome {
     position: absolute;
     text-align: center;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 
-/* 欢迎Div内h1标题设置为彩色字体 */
+/* 欢迎div内h1标题设置为彩色字体 */
 #welcome h1 {
     font-size: 4em;
     font-style: italic;
-    background: -webkit-linear-gradient(
+    background-image: -webkit-linear-gradient(
             left,
             #37ecba 0%,
             #72afd3 10%,
@@ -37,23 +42,32 @@ header[role="banner"] {
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     -webkit-background-size: 200% 100%;
+    background-size: 200% 100%;
     -webkit-animation: move-animation 8s linear infinite;
+    -moz-animation: move-animation 8s linear infinite;
+    -o-animation: move-animation 8s linear infinite;
+    animation: move-animation 8s linear infinite;
 }
 
-/* 欢迎Div内h2标题样式 */
+/* 欢迎div内h2标题样式 */
 #welcome h2 {
     margin-top: 40px;
+    min-height: 40px;
     font-size: 2em;
     font-family: "Lucida Calligraphy", cursive, serif, sans-serif;
     color: cadetblue;
 }
 
-#welcome h2 span {
-    font-style: italic;
-    color: cornflowerblue;
+#welcome h2::after {
+    content: '|';
+    color: #fff;
+    -webkit-animation: hidden-or-show-line 1.5s linear infinite;
+    -moz-animation: hidden-or-show-line 1.5s linear infinite;
+    -o-animation: hidden-or-show-line 1.5s linear infinite;
+    animation: hidden-or-show-line 1.5s linear infinite;
 }
 
-/* 欢迎Div内p标签样式 */
+/* 欢迎div内p标签样式 */
 #welcome p {
     margin-top: 30px;
     text-align: justify;
@@ -71,7 +85,91 @@ header[role="banner"] {
     color: palevioletred;
 }
 
+#welcome p a {
+    background: -webkit-linear-gradient(
+            left,
+            palevioletred 0%,
+            deeppink 10%,
+            #ffafbd 20%,
+            #ffc3a0 30%,
+            #fc00ff 40%,
+            #00dbde 50%,
+            #fc00ff 60%,
+            #ffc3a0 70%,
+            #ffafbd 80%,
+            deeppink 90%,
+            palevioletred 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-size: 200% 100%;
+    background-size: 200% 100%;
+    -webkit-animation: move-animation 8s linear infinite;
+    -moz-animation: move-animation 8s linear infinite;
+    -o-animation: move-animation 8s linear infinite;
+    animation: move-animation 8s linear infinite;
+}
+
 /* 左右移动背景位置以达到字体颜色变换效果 */
+@-webkit-keyframes move-animation {
+    0% {
+        background-position: 0  0;
+    }
+    50% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 0  0;
+    }
+}
+
+@-moz-keyframes move-animation {
+    0% {
+        background-position: 0  0;
+    }
+    50% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 0  0;
+    }
+}
+
+@-ms-keyframes move-animation {
+    0% {
+        background-position: 0  0;
+    }
+    50% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 0  0;
+    }
+}
+
+@-o-keyframes move-animation {
+    0% {
+        background-position: 0  0;
+    }
+    50% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 0  0;
+    }
+}
+
+@-khtml-keyframes move-animation {
+    0% {
+        background-position: 0  0;
+    }
+    50% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 0  0;
+    }
+}
+
 @keyframes move-animation {
     0% {
         background-position: 0  0;
@@ -81,5 +179,78 @@ header[role="banner"] {
     }
     100% {
         background-position: 0  0;
+    }
+}
+
+/* 显示或隐藏| */
+@-webkit-keyframes hidden-or-show-line {
+    0% {
+        color: cornflowerblue;
+    }
+    50% {
+        color: transparent;
+    }
+    100% {
+        color: cornflowerblue;
+    }
+}
+
+@-moz-keyframes hidden-or-show-line {
+    0% {
+        color: cornflowerblue;
+    }
+    50% {
+        color: transparent;
+    }
+    100% {
+        color: cornflowerblue;
+    }
+}
+
+@-ms-keyframes hidden-or-show-line {
+    0% {
+        color: cornflowerblue;
+    }
+    50% {
+        color: transparent;
+    }
+    100% {
+        color: cornflowerblue;
+    }
+}
+
+@-o-keyframes hidden-or-show-line {
+    0% {
+        color: cornflowerblue;
+    }
+    50% {
+        color: transparent;
+    }
+    100% {
+        color: cornflowerblue;
+    }
+}
+
+@-khtml-keyframes hidden-or-show-line {
+    0% {
+        color: cornflowerblue;
+    }
+    50% {
+        color: transparent;
+    }
+    100% {
+        color: cornflowerblue;
+    }
+}
+
+@keyframes hidden-or-show-line {
+    0% {
+        color: cornflowerblue;
+    }
+    50% {
+        color: transparent;
+    }
+    100% {
+        color: cornflowerblue;
     }
 }
