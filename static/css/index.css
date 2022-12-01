@@ -1,3 +1,7 @@
+body {
+    background-color: #000;
+}
+
 /* header样式 */
 header[role="banner"] {
     position: relative;
@@ -6,7 +10,16 @@ header[role="banner"] {
     min-width: 800px;
     min-height: 800px;
     overflow: auto;
-    background-image: linear-gradient(to top, #fff1eb, #ace0f9);
+}
+
+/* 波浪样式 */
+.waves {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
 }
 
 /* 居中显示欢迎div */
@@ -53,9 +66,8 @@ header[role="banner"] {
 #welcome h2 {
     margin-top: 40px;
     min-height: 40px;
-    font-size: 2em;
     font-family: "Lucida Calligraphy", cursive, serif, sans-serif;
-    color: cadetblue;
+    color: #00ffff;
 }
 
 #welcome h2::after {
@@ -73,7 +85,7 @@ header[role="banner"] {
     text-align: justify;
     text-indent: 2em;
     font-size: 1.5em;
-    color: cadetblue;
+    color: #63ff37;
 }
 
 #welcome p span {

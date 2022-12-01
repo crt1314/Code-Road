@@ -45,6 +45,24 @@ li {
     background: transparent;
 }
 
+/* input填写字样式 */
+::-webkit-input-placeholder {
+    color: #A2A2A2;
+}
+
+::-moz-placeholder {
+    color: #A2A2A2;
+    opacity:  1;
+}
+
+::-ms-input-placeholder {
+    color: #A2A2A2;
+}
+
+::placeholder {
+    color: #A2A2A2;
+}
+
 /* 滚动条样式 */
 ::-webkit-scrollbar {
     width: 16px;
@@ -66,121 +84,65 @@ li {
     background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
 }
 
-/* 加载特效样式 */
-#loadingDiv {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background-image: linear-gradient(to top, #fff1eb, #ace0f9);
-    z-index: 99999;
-}
-
-#loadingDiv div {
-    display: flex;
-    position: relative;
-    width: 200px;
-    height: 200px;
-    justify-content: center;
-    align-items: center;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
-#loadingDiv div h2 {
-    font-weight: 500;
-    font-family: "Lucida Calligraphy", cursive, serif, sans-serif;
-}
-
-#loadingDiv div span {
-    position: absolute;
-    top: 0;
+/* 鼠标跟随物 */
+.mouse-cursor {
+    position: fixed;
     left: 0;
-    width: 100%;
-    height: 100%;
-    border: 2px solid black;
+    top: 0;
     pointer-events: none;
-    -webkit-animation: whirl 3s linear infinite;
-    -o-animation: whirl 3s linear infinite;
-    animation: whirl 3s linear infinite;
+    border-radius: 50%;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    visibility: hidden;
 }
 
-#loadingDiv div span:nth-child(2n) {
-    -webkit-animation-direction: reverse;
-    -moz-animation-direction: reverse;
-    -o-animation-direction: reverse;
-    animation-direction: reverse;
+.cursor-inner {
+    margin-left: -3px;
+    margin-top: -3px;
+    width: 6px;
+    height: 6px;
+    z-index: 100;
+    background-color: #eb4a4c;
+    -webkit-transition: width .3s ease-in-out, height .3s ease-in-out, margin .3s ease-in-out, opacity .3s ease-in-out;
+    -moz-transition: width .3s ease-in-out, height .3s ease-in-out, margin .3s ease-in-out, opacity .3s ease-in-out;
+    -o-transition: width .3s ease-in-out, height .3s ease-in-out, margin .3s ease-in-out, opacity .3s ease-in-out;
+    transition: width .3s ease-in-out, height .3s ease-in-out, margin .3s ease-in-out, opacity .3s ease-in-out;
 }
 
-#loadingDiv div span:nth-child(3) {
-    -webkit-animation-delay: .5s;
-    -moz-animation-delay: .5s;
-    -o-animation-delay: .5s;
-    animation-delay: .5s;
+.cursor-inner.cursor-hover {
+    margin-left: -40px;
+    margin-top: -40px;
+    width: 80px;
+    height: 80px;
+    background-color: #eb4a4c;
+    opacity: .3;
 }
 
-#loadingDiv div span:nth-child(4) {
-    -webkit-animation-delay: .5s;
-    -moz-animation-delay: .5s;
-    -o-animation-delay: .5s;
-    animation-delay: .5s;
+.cursor-outer {
+    margin-left: -15px;
+    margin-top: -15px;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #eb4a4c;
+    z-index: 100;
+    opacity: .5;
+    -webkit-transition: all .08s ease-out;
+    -moz-transition: all .08s ease-out;
+    -o-transition: all .08s ease-out;
+    transition: all .08s ease-out;
 }
 
-/* 旋转动画 */
-@-webkit-keyframes whirl {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+.cursor-outer.cursor-hover {
+    opacity: 0;
 }
 
-@-moz-keyframes whirl {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@-ms-keyframes whirl {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@-o-keyframes whirl {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@-khtml-keyframes whirl {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes whirl {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+.wrap[data-magic_cursor="hide"] .mouse-cursor {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    z-index: -1111;
 }

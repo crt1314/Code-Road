@@ -1,5 +1,7 @@
 /* body样式 */
 body {
+    width: 100vw;
+    height: 100vh;
     background-image: linear-gradient(to top, #fff1eb, #ace0f9);
     overflow: hidden;
 }
@@ -7,7 +9,7 @@ body {
 /* header样式 */
 header[role="banner"] {
     height: 40vh;
-    background-image: url("../img/background.png");
+    background-image: url("../img/background.jpg");
     -webkit-background-size: cover;
     background-size: cover;
     background-position: center center;
@@ -22,25 +24,14 @@ header[role="banner"] {
     transition: transform 2s;
 }
 
-header[role="banner"] div {
+header[role="banner"] .bgDiv {
     height: 100%;
     width: 100%;
     text-align: center;
     font-family: "Lucida Calligraphy", cursive, serif, sans-serif;
-    background-color: rgba(0, 0, 0, .5);
 }
 
-header[role="banner"] #beginWord {
-    font-size: 3.5em;
-    color: #63ff37;
-    transform: translateY(20vh);
-}
-
-header[role="banner"] span {
-    display: inline-block;
-    font-size: 2em;
-    color: #ff0037;
-    border-bottom: 1px solid white;
+header[role="banner"] .bgDiv div {
     -webkit-transform: translateY(20vh);
     -moz-transform: translateY(20vh);
     -ms-transform: translateY(20vh);
@@ -48,9 +39,24 @@ header[role="banner"] span {
     transform: translateY(20vh);
 }
 
-/* 导航栏nav样式 */
-nav[role="navigation"] {
-    height: 100px;
-    width: 100%;
-    background-color: red;
+header[role="banner"] #beginWord {
+    font-size: 3.5em;
+    color: #63ff37;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+header[role="banner"] span {
+    display: inline-block;
+    font-size: 1.5em;
+    color: #ff0037;
+    border-bottom: 1px solid white;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
