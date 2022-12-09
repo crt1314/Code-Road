@@ -2,142 +2,20 @@
 
 window.onload = function () {
     changeTitleWhenUserLeaveAndArrive();
-    showWelcome();
-    blessings_show_and_hidden();
-    show_cursor();
-    show_waves();
+    showContent();
+    showMenu(".wrap", "static/img/CRoad.png");
+    showCursor();
+    showSettings();
+    page_transition(2);
+    trigger_menu();
+    headline();
+    showWaves();
 };
 
 /**
- * 展示欢迎页面
- * @author crt1314
- * @version 1.0.0
+ * 展示波浪特效
  */
-function showWelcome() {
-    const header = document.createElement("header");
-    const welcomeDiv = document.createElement("div");
-    const waves = document.createElement("div");
-    const h1 = document.createElement("h1");
-    const h2 = document.createElement("h2");
-    header.role = 'banner';
-    header.classList.add("wrap");
-    header.dataset['magic_cursor'] = "show";
-    header.dataset['enter'] = "fadeInUp";
-    header.dataset['exit'] = "";
-    welcomeDiv.id = "welcome";
-    waves.classList.add("waves");
-    h1.textContent = "Code Road";
-    welcomeDiv.appendChild(h1);
-    welcomeDiv.appendChild(h2);
-    welcomeDiv.appendChild(description());
-    header.appendChild(waves);
-    header.appendChild(welcomeDiv);
-    document.body.appendChild(header);
-}
-
-/**
- * 返回描述信息
- * @author crt1314
- * @version 1.0.0
- * @returns {HTMLParagraphElement} p标签对象
- */
-function description() {
-    const desc = document.createElement("p");
-    const link = document.createElement("a");
-    link.title = "go!!!!!";
-    link.href = "study/menu.html";
-    link.textContent = "( ๑‾̀◡‾́)σ»";
-    desc.appendChild(document.createTextNode(
-        "This website is made for recording learning trails " +
-        "and will document content on "));
-    desc.appendChild(createSpanElement("Java"));
-    desc.appendChild(document.createTextNode("、"));
-    desc.appendChild(createSpanElement("C"));
-    desc.appendChild(document.createTextNode("、"));
-    desc.appendChild(createSpanElement("Python"));
-    desc.appendChild(document.createTextNode("、"));
-    desc.appendChild(createSpanElement("Linux"));
-    desc.appendChild(document.createTextNode(
-        ", etc. It is a long、arduous、lonely and tedious way for me. " +
-        "But I learned a lot -- "));
-    desc.appendChild(createSpanElement(
-        "all this can not be achieved overnight and success relies on perseverance. ",
-        "highlight"));
-    desc.appendChild(document.createTextNode("Let we go, "));
-    desc.appendChild(link);
-    return desc;
-}
-
-/**
- * 展示与隐藏祝福语
- * @author crt1314
- * @version 1.0.0
- */
-function blessings_show_and_hidden() {
-    const h2 = document.querySelector("#welcome h2");
-    let i = 0, blessingsWordLength = 0;
-    let intervalID, blessings;
-    $.ajax({
-        url: "static/json/blessings.json",
-        dataType: "json",
-        success: function (data) {
-            blessings = data;
-            begin();
-        }
-    });
-
-    /**
-     * 收到json文件传来数据则开始显示内容
-     * @author crt1314
-     * @version 1.0.0
-     */
-    function begin() {
-        intervalID = setInterval(show_blessings, 200);
-    }
-
-    /**
-     * 逐渐展示祝福语
-     * @author crt1314
-     * @version 1.0.0
-     */
-    function show_blessings() {
-        h2.textContent = blessings[i].substr(0, blessingsWordLength++);
-        if (blessingsWordLength > blessings[i].length) {
-            clearInterval(intervalID);
-            setTimeout(pause, 500);
-        }
-    }
-
-    /**
-     * 逐渐删除祝福语
-     * @author crt1314
-     * @version 1.0.0
-     */
-    function hidden_blessings() {
-        h2.textContent = blessings[i].substr(0, --blessingsWordLength);
-        if (!blessingsWordLength) {
-            clearInterval(intervalID);
-            intervalID = setInterval(show_blessings, 200);
-            i = (i + 1) % blessings.length;
-        }
-    }
-
-    /**
-     * 输出完短暂暂停
-     * @author crt1314
-     * @version 1.0.0
-     */
-    function pause() {
-         intervalID = setInterval(hidden_blessings, 100);
-    }
-}
-
-/**
- * 展示波浪
- * @author crt1314
- * @version 1.0.0
- */
-function show_waves() {
+function showWaves() {
     const pointSize = 2.5;
     new ShaderProgram(document.querySelector('.waves'), {
         texture: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAb1BMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8v0wLRAAAAJHRSTlMAC/goGvDhmwcExrVjWzrm29TRqqSKenRXVklANSIUE8mRkGpv+HOfAAABCElEQVQ4y4VT13LDMAwLrUHteO+R9f/fWMfO6dLaPeKVEECRxOULWsEGpS9nULDwia2Y+ALqUNbAWeg775zv+sA4/FFRMxt8U2FZFCVWjR/YrH4/H9sarclSKdPMWKzb8VsEeHB3m0shkhVCyNzeXeAQ9Xl4opEieX2QCGnwGbj6GMyjw9t1K0fK9YZunPXeAGsfJtYjwzxaBnozGGorYz0ypK2HzQSYx1y8DgSRo2ewOiyh2QWOEk1Y9OrQV0a8TiBM1a8eMHWYnRMy7CZ4t1CmyRkhSUvP3gRXyHOCLBxNoC3IJv//ZrJ/kxxUHPUB+6jJZZHrpg6GOjnqaOmzp4NDR48OLxn/H27SRQ08S0ZJAAAAAElFTkSuQmCC',
@@ -204,4 +82,42 @@ function show_waves() {
             this.uniforms.size = (h / 400) * pointSize * dpi;
         }
     });
+}
+
+function headline(){
+    const animationDelay = 2500;
+    animateHeadline($('.cd-headline'));
+
+    function animateHeadline($headlines) {
+        let duration = animationDelay;
+        $headlines.each(function(){
+            const headline = $(this);
+
+            const words = headline.find('.cd-words-wrapper b');
+            let width = 0;
+            words.each(function() {
+                const wordWidth = $(this).width();
+                if (wordWidth > width) width = wordWidth;
+            });
+            headline.find('.cd-words-wrapper').css('width', width);
+            setTimeout(function() {
+                hideWord(headline.find('.is-visible').eq(0));
+            }, duration);
+        });
+    }
+
+    function hideWord($word) {
+        const nextWord = takeNext($word);
+        switchWord($word, nextWord);
+        setTimeout(function(){ hideWord(nextWord) }, animationDelay);
+    }
+
+    function takeNext($word) {
+        return (!$word.is(':last-child')) ? $word.next() : $word.parent().children().eq(0);
+    }
+
+    function switchWord($oldWord, $newWord) {
+        $oldWord.removeClass('is-visible').addClass('is-hidden');
+        $newWord.removeClass('is-hidden').addClass('is-visible');
+    }
 }

@@ -1,5 +1,16 @@
 body {
+    line-height: 1.7;
     background-color: #000;
+    letter-spacing: .2px;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    font-weight: 400;
+    color: #A2A2A2;
+}
+
+img.svg {
+    width: 15px;
+    height: 15px;
 }
 
 /* header样式 */
@@ -7,8 +18,6 @@ header[role="banner"] {
     position: relative;
     width: 100vw;
     height: 100vh;
-    min-width: 800px;
-    min-height: 800px;
     overflow: auto;
 }
 
@@ -22,23 +31,21 @@ header[role="banner"] {
     z-index: -1;
 }
 
-/* 居中显示欢迎div */
-#welcome {
-    position: absolute;
+/* 内容样式 */
+.home {
+    float: left;
+    width: 100%;
+    height: auto;
     text-align: center;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    clear: both;
 }
 
-/* 欢迎div内h1标题设置为彩色字体 */
-#welcome h1 {
-    font-size: 4em;
+.home .name {
+    margin-bottom: 20px;
+    font-size: 72px;
+    font-weight: 700;
     font-style: italic;
+    text-transform: uppercase;
     background-image: -webkit-linear-gradient(
             left,
             #37ecba 0%,
@@ -62,42 +69,115 @@ header[role="banner"] {
     animation: move-animation 8s linear infinite;
 }
 
-/* 欢迎div内h2标题样式 */
-#welcome h2 {
-    margin-top: 40px;
-    min-height: 40px;
-    font-family: "Lucida Calligraphy", cursive, serif, sans-serif;
-    color: #00ffff;
+.home .ct {
+    font-size: 25px;
+    font-weight: 500;
+    color: #a2a2a2;
+    margin-bottom: 40px;
 }
 
-#welcome h2::after {
-    content: '|';
-    color: #fff;
-    -webkit-animation: hidden-or-show-line 1.5s linear infinite;
-    -moz-animation: hidden-or-show-line 1.5s linear infinite;
-    -o-animation: hidden-or-show-line 1.5s linear infinite;
-    animation: hidden-or-show-line 1.5s linear infinite;
+.home .ct b {
+    color: var(--main-color);
+    font-weight: 600;
 }
 
-/* 欢迎div内p标签样式 */
-#welcome p {
-    margin-top: 30px;
+.about {
+    display: flex;
+    float: left;
+    width: 100%;
+    height: auto;
+    clear: both;
+}
+
+.about .left {
+    width: 40%;
+}
+
+.about .left .image {
+    position: relative;
+}
+
+.about .left .image img {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.about .right {
+    width: 60%;
+    padding-left: 100px;
+}
+
+.about .right .short {
+    float: left;
+    margin-bottom: 24px;
+    border-bottom: 1px dashed rgba(255, 255, 255, .15);
+    padding-bottom: 30px;
+    width: 100%;
+}
+
+.about .right .short .name {
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-size: 40px;
+    font-weight: 700;
+    background-image: -webkit-linear-gradient(
+            left,
+            #37ecba 0%,
+            #72afd3 10%,
+            #ffafbd 20%,
+            #ffc3a0 30%,
+            #fc00ff 40%,
+            #00dbde 50%,
+            #fc00ff 60%,
+            #ffc3a0 70%,
+            #ffafbd 80%,
+            #72afd3 90%,
+            #37ecba 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-size: 200% 100%;
+    background-size: 200% 100%;
+    -webkit-animation: move-animation 8s linear infinite;
+    -moz-animation: move-animation 8s linear infinite;
+    -o-animation: move-animation 8s linear infinite;
+    animation: move-animation 8s linear infinite;
+}
+
+.about .right .short .ct {
+    font-size: 18px;
+    font-weight: 400;
+    color: #a2a2a2;
+}
+
+.about .right .short .ct b {
+    color: var(--main-color);
+    font-weight: 400;
+}
+
+.about .right .text {
+    float: left;
+    margin-bottom: 36px;
+    width: 100%;
+}
+
+.about .right .text p {
+    margin-bottom: 15px;
+    color: #63ff37;
     text-align: justify;
     text-indent: 2em;
-    font-size: 1.5em;
-    color: #63ff37;
 }
 
-#welcome p span {
+.content p span {
     font-style: italic;
     color: deeppink;
 }
 
-#welcome p span.highlight {
+.content p span.highlight {
     color: palevioletred;
 }
 
-#welcome p a {
+.content p a {
     background: -webkit-linear-gradient(
             left,
             palevioletred 0%,
@@ -119,6 +199,144 @@ header[role="banner"] {
     -moz-animation: move-animation 8s linear infinite;
     -o-animation: move-animation 8s linear infinite;
     animation: move-animation 8s linear infinite;
+}
+
+/* settings样式 */
+.settings {
+    position: fixed;
+    z-index: 10;
+    top: 20%;
+    right: -200px;
+    width: 200px;
+    background-color: #222;
+    padding: 40px 20px 33px 30px;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.settings.opened {
+    right: 0;
+}
+
+.settings .wrapper {
+    float: left;
+    width: 100%;
+    height: auto;
+    clear: both;
+}
+
+.settings .icon {
+    position: absolute;
+    top: 0;
+    right: 100%;
+    padding: 12px 12px 4px;
+    background-color: #222;
+    cursor: pointer;
+}
+
+.settings .icon .svg {
+    color: #fff;
+    width: 25px;
+    height: 25px;
+    -webkit-animation: fa-spin 2s infinite linear;
+    -o-animation: fa-spin 2s infinite linear;
+    animation: fa-spin 2s infinite linear;
+}
+
+.settings .title {
+    display: inline-block;
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.settings .title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, .2);
+}
+
+.settings .colors {
+    margin: 0 0 22px;
+    padding-top: 32px;
+}
+
+.settings .colors li {
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.settings .colors li a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+}
+
+.settings .cursor {
+    padding-top: 15px;
+}
+
+.settings .cursor li {
+    margin: 0 20px 0 0;
+    display: inline-block;
+}
+
+.settings .cursor li a {
+    color: #fff;
+    opacity: .4;
+    font-weight: 600;
+}
+
+.settings .cursor li a.showme {
+    opacity: 1;
+}
+
+.settings .cursor li:nth-child(1) a {
+    display: inline-block;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #fff;
+    border-radius: 100%;
+}
+
+.settings .cursor li:nth-child(1) a::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    left: 50%;
+    top: 50%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    background-color: #fff;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.settings .cursor li .svg {
+    width: 25px;
+    height: 25px;
+    color: #fff;
+}
+
+.settings .cursor li:nth-child(2) {
+    position: relative;
+    top: -2px;
 }
 
 /* 左右移动背景位置以达到字体颜色变换效果 */
@@ -264,5 +482,164 @@ header[role="banner"] {
     }
     100% {
         color: cornflowerblue;
+    }
+}
+
+/* 旋转 */
+@-webkit-keyframes fa-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        -moz-transform: rotate(359deg);
+        -ms-transform: rotate(359deg);
+        -o-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+@-ms-keyframes fa-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        -moz-transform: rotate(359deg);
+        -ms-transform: rotate(359deg);
+        -o-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+@-moz-keyframes fa-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        -moz-transform: rotate(359deg);
+        -ms-transform: rotate(359deg);
+        -o-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+@-o-keyframes fa-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        -moz-transform: rotate(359deg);
+        -ms-transform: rotate(359deg);
+        -o-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+@keyframes fa-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        -moz-transform: rotate(359deg);
+        -ms-transform: rotate(359deg);
+        -o-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+/* 响应式布局 */
+@media (max-width: 1400px) {
+    .home .name {
+        font-size: 55px;
+        margin-bottom: 17px;
+    }
+    .home .ct {
+        font-size: 23px;
+        margin-bottom: 32px;
+    }
+    .about .right .short .name {
+        font-size: 32px;
+        margin-bottom: 12px;
+    }
+    .about .right .short {
+        margin-bottom: 30px;
+        padding-bottom: 25px;
+    }
+    .about .right {
+        padding-left: 75px;
+    }
+    .about .right .text {
+        margin-bottom: 30px;
+    }
+}
+@media (max-width: 1040px) {
+    .content {
+        width: 100%;
+        top: 70px;
+        bottom: 70px;
+    }
+    .home {
+        padding: 0 20px;
+    }
+    .about {
+        flex-direction: column;
+        align-items: baseline;
+        padding: 0 20px;
+    }
+    .about .left {
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .about .right {
+        width: 100%;
+        text-align: center;
+        padding-left: 0;
+    }
+    .about .right .short .name {
+        font-size: 30px;
+        margin-bottom: 13px;
+    }
+    .about .right .short .ct {
+        font-size: 16px;
+    }
+    .about .right .short {
+        margin-bottom: 19px;
+        padding-bottom: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .home .name {
+        font-size: 40px;
+        margin-bottom: 14px;
+    }
+    .home .ct {
+        font-size: 18px;
+        margin-bottom: 30px;
     }
 }

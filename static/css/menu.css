@@ -1,62 +1,250 @@
-/* body样式 */
-body {
+/* snow特效样式 */
+.snow {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to bottom, #0f2027, #080e10);
+    z-index: -1;
+}
+
+header[role="banner"] {
+    position: relative;
     width: 100vw;
     height: 100vh;
-    background-image: linear-gradient(to top, #fff1eb, #ace0f9);
-    overflow: hidden;
-}
-
-/* header样式 */
-header[role="banner"] {
-    height: 40vh;
-    background-image: url("../img/background.jpg");
-    -webkit-background-size: cover;
+    background: url("../img/banner.jpg") no-repeat center center;
     background-size: cover;
-    background-position: center center;
-    -webkit-transform: translateY(-100%);
-    -moz-transform: translateY(-100%);
-    -ms-transform: translateY(-100%);
-    -o-transform: translateY(-100%);
-    transform: translateY(-100%);
-    -webkit-transition: transform 2s;
-    -moz-transition: transform 2s;
-    -o-transition: transform 2s;
-    transition: transform 2s;
 }
 
-header[role="banner"] .bgDiv {
-    height: 100%;
-    width: 100%;
+nav[role="navigation"] {
+    width: 100vw;
+    top: 0;
+}
+
+.wrap {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.content {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    padding: 50px 40px;
+    width: 1000px;
+    max-height: 80vh;
+    background: rgba(255, 255, 255, .4);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+.content h3 {
     text-align: center;
-    font-family: "Lucida Calligraphy", cursive, serif, sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    color: rgb(39, 255, 80);
 }
 
-header[role="banner"] .bgDiv div {
-    -webkit-transform: translateY(20vh);
-    -moz-transform: translateY(20vh);
-    -ms-transform: translateY(20vh);
-    -o-transform: translateY(20vh);
-    transform: translateY(20vh);
+.content h4 {
+    border-left: 5px solid rgba(255, 255, 255, .7);
+    padding-left: 10px;
+    margin-top: 60px;
+    font-weight: 500;
+    font-size: 24px;
+    color: rgb(0, 255, 255);
 }
 
-header[role="banner"] #beginWord {
-    font-size: 3.5em;
-    color: #63ff37;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
+.content h5 {
+    margin-top: 40px;
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(0, 255, 255);
 }
 
-header[role="banner"] span {
+.content p {
+    margin-top: 30px;
+    font-size: 17px;
+    color: #ffc3a0;
+    text-indent: 2em;
+}
+
+.content b {
+    margin: 0 3px;
+    color: rgb(39, 230, 255);
+}
+
+.content ul {
+    margin-top: 30px;
+}
+
+.content li {
+    margin-top: 3px;
+    color: #ffc3a0;
+}
+
+.content li a {
+    color: #00ffff;
+}
+
+.content li a::before {
+    content: '☞ ';
+    font-size: 24px;
+}
+
+.content ol {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.content ol li {
+    position: relative;
+    color: #0ff;
+    list-style: upper-roman;
+}
+
+.content li p {
+    margin-top: 0;
+    text-indent: 0;
+    color: #ffc3a0;
+}
+
+.content img {
+    position: relative;
+    left: 50%;
+    margin-top: 10px;
+    max-width: 80%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+pre code {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.content li.star {
+    margin-left: 2em;
+    list-style-type: circle;
+}
+
+.section .box {
+    position: absolute;
+    top: 20%;
+    left: 80px;
+    z-index: 999;
+}
+
+.section .box .button {
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    width: 25px;
+    height: 25px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, .5);
+    cursor: pointer;
+    z-index: 20;
+}
+
+.section .menu {
+    position: absolute;
+    width: 300px;
+    max-height: 500px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, .5);
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 43px 33px;
+    -moz-transform-origin: 43px 33px;
+    -ms-transform-origin: 43px 33px;
+    -o-transform-origin: 43px 33px;
+    transform-origin: 43px 33px;
+    -webkit-transition: transform .3s;
+    -moz-transition: transform .3s;
+    -o-transition: transform .3s;
+    transition: transform .3s;
+    overflow-y: auto;
+}
+
+.section .menu::-webkit-scrollbar {
+    width: 3px;
+}
+
+.section .menu a {
     display: inline-block;
-    font-size: 1.5em;
-    color: #ff0037;
-    border-bottom: 1px solid white;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
+    color: #0ff;
+    width: 100%;
+    height: 100%;
 }
+
+.section .menu li {
+    border-bottom: 1px solid #0ff;
+    color: #0ff;
+}
+
+.section .menu .menu_li {
+    text-align: center;
+    font-size: 24px;
+    padding: 15px 0;
+}
+
+.section .menu li:hover {
+    background-color: rgba(0, 255, 255, .4);
+}
+
+.section .menu li a {
+    padding: 5px 0 5px 1em;
+}
+
+.section .menu li.tab1 a {
+    padding-left: 2em;
+}
+
+.section .menu li.tab2 a {
+    padding-left: 3em;
+}
+
+.section .menu li.tab3 a {
+    padding-left: 4em;
+}
+
+/*.section .menu button {*/
+/*    position: absolute;*/
+/*    display: block;*/
+/*    left: 50px;*/
+/*    top: 7%;*/
+/*    width: 25px;*/
+/*    height: 25px;*/
+/*    background-color: rgba(255, 255, 255, .5);*/
+/*    -webkit-border-radius: 0 50% 50% 0;*/
+/*    -moz-border-radius: 0 50% 50% 0;*/
+/*    border-radius: 50%;*/
+/*    outline: none;*/
+/*    border: 0;*/
+/*    cursor: pointer;*/
+/*}*/
+
+@media (max-width: 1040px) {
+    .content {
+        width: 100%;
+    }
+}
+
